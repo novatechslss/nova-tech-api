@@ -1,0 +1,2 @@
+import {createContext,useContext,useMemo,useState} from 'react';import {emptyStats,updateStats} from '../services/statistics.js';
+const Ctx=createContext(null);export function StatsProvider({children}){const [stats,setStats]=useState({});const record=(id,result)=>setStats(p=>({...p,[id]:updateStats(p[id]||emptyStats(),result)}));const reset=()=>setStats({});const value=useMemo(()=>({stats,record,reset}),[stats]);return <Ctx.Provider value={value}>{children}</Ctx.Provider>};export const useApiStats=()=>useContext(Ctx);
