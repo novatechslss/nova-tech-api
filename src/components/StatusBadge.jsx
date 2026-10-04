@@ -1,0 +1,1 @@
+import React from 'react';export default function StatusBadge({status='unknown'}){const map={success:['online','Online'], 'http-error':['error','HTTP Error'],'network-error':['unknown','Unknown'],unknown:['unknown','Unknown'],pending:['pending','Testing']};const [cls,label]=map[status]||map.unknown;return <span className={'status-badge '+cls}><i/>{label}</span>}

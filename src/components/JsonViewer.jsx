@@ -1,0 +1,1 @@
+import React from 'react';export default function JsonViewer({value,raw=false}){if(value===undefined||value===null)return <div className="empty-response">No response body available yet.</div>;let text=typeof value==='string'?value:JSON.stringify(value,null,2);return <pre className="response-pre"><code>{text}</code></pre>}

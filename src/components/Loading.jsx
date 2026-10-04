@@ -1,0 +1,1 @@
+import React from 'react';export default function Loading(){return <div className="page-wrap"><div className="skeleton wide"/><div className="stats-grid">{[1,2,3,4].map(n=><div className="skeleton tile" key={n}/>)}</div><div className="skeleton panel"/></div>}
