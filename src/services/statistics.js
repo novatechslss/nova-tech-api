@@ -1,0 +1,3 @@
+export const emptyStats=()=>({total:0,success:0,httpFailures:0,networkFailures:0,unknown:0,lastAt:null,totalMs:0,completed:0,lastResult:null});
+export function updateStats(previous,result){const s={...emptyStats(),...previous};s.total++;s.lastAt=new Date().toISOString();s.lastResult=result.status;if(result.kind==='success')s.success++;else if(result.kind==='http-error')s.httpFailures++;else if(result.kind==='network-error')s.networkFailures++;else s.unknown++;if(typeof result.duration==='number'&&Number.isFinite(result.duration)){s.totalMs+=result.duration;s.completed++;}return s;}
+export const averageMs=s=>s?.completed?Math.round(s.totalMs/s.completed):null;
